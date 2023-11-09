@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -35,7 +36,7 @@ public class BaseTest
 			(
 				@Optional("no") String grid,
 				@Optional("http://localhost:4444") String gridURL,					
-				@Optional("chrome") String browser,
+				@Optional("firefox") String browser,
 				@Optional("https://opensource-demo.orangehrmlive.com") String appURL,
 				@Optional("7") String ITO,
 				@Optional("6") String ETO	
@@ -49,9 +50,9 @@ public class BaseTest
 		if(grid.equalsIgnoreCase("yes"))
 		{
 			URL url=new URL(gridURL);
-			if(browser.equalsIgnoreCase("chrome"))
+			if(browser.equalsIgnoreCase("firefox"))
 			{
-				ChromeOptions options=new ChromeOptions();
+				FirefoxOptions options=new FirefoxOptions();
 				driver=new RemoteWebDriver(url,options);
 			}
 			else
